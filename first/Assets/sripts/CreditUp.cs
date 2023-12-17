@@ -12,5 +12,4 @@ public class CreditUp : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
 }

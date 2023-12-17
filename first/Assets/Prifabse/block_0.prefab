@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1330208014940814012}
   - component: {fileID: 8647408587272198061}
   - component: {fileID: 3419647630606538115}
+  - component: {fileID: 2389487743087939807}
   m_Layer: 6
   m_Name: block_0
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 5010618468662620228}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.16, y: 2.41, z: 0}
+  m_LocalPosition: {x: 15.298949, y: -8.384768, z: 0}
   m_LocalScale: {x: 1.837007, y: 1.837007, z: 1.837007}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -147,3 +148,16 @@ PolygonCollider2D:
       - {x: 1.3553146, y: 0.14120083}
       - {x: 1.2347608, y: 0.12316387}
   m_UseDelaunayMesh: 0
+--- !u!114 &2389487743087939807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5010618468662620228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 784373287b85f97449ae2ab688cee386, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 40

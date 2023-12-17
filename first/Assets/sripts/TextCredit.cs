@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class TextCredit : MonoBehaviour
 {
+
     public static int Credit;
     Text text;
     void Start()
@@ -16,4 +17,5 @@ public class TextCredit : MonoBehaviour
     {
         text.text = Credit.ToString();
     }
+
 }

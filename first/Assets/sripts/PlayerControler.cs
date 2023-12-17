@@ -7,35 +7,40 @@ public class PlayerControler : MonoBehaviour
     public float speed;
     public float jumpForce;
     public float moveInput;
+    public Transform feetPos;
+    public float checkRadius;
+    public LayerMask whatIsGround;
+    public Animator anim;
 
     private Rigidbody2D rb;
 
+    private bool isGrounded;
     private bool facingRight = true;
-
-    private bool isGrounded;// преземлился ли игрок 
-    public Transform feetPos;// позиция ног игрока
-    public float checkRadiuos;// радиус того как близко к земле
-    public LayerMask whatIsGround;// что есть земля 
-
-    public Animator anim;
-
+    
     private void Start()
     {
-        anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
+
+    private void Update()
+    {
+        CheckGrounded();
+        HandleJump();
+        UpdateAnimations();
     }
 
     private void FixedUpdate()
     {
         moveInput = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-        if(facingRight == false && moveInput > 0)
+        if (facingRight == false && moveInput > 0)
         {
-            Flip(); 
+            Flip();
         }
         if (facingRight == true && moveInput < 0)
         {
-            Flip(); 
+            Flip();
         }
         if (moveInput == 0)
         {
@@ -47,26 +52,6 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadiuos, whatIsGround);
-
-        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
-        {
-            rb.velocity = Vector2.up * jumpForce;
-            anim.SetTrigger("takeOf");
-        }
-
-        if (isGrounded == true)
-        {
-            anim.SetBool("isJumping", false);
-        }
-        else 
-        {
-            anim.SetBool("isJumping", true);
-        }
-    }
-
     void Flip()
     {
         facingRight = !facingRight;
@@ -74,13 +59,55 @@ public class PlayerControler : MonoBehaviour
         Scaler.x *= -1;
         transform.localScale = Scaler;
 
-        if(moveInput < 0)
+        if (moveInput < 0)
         {
             transform.eulerAngles = new Vector3(0, 180, 0);
         }
-        else if(moveInput > 0)
+        else if (moveInput > 0)
         {
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
+    }
+        private void Move()
+    {
+        float moveInput = Input.GetAxis("Horizontal");
+        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
+    }
+
+
+    private void CheckGrounded()
+    {
+        isGrounded = Physics2D.OverlapCircle(feetPos.position, checkRadius, whatIsGround);
+    }
+
+    private void HandleJump()
+    {
+        if (isGrounded == true && Input.GetKeyDown(KeyCode.Space))
+        {
+            rb.velocity = Vector2.up * jumpForce;
+            anim.SetTrigger("takeOf");
+        }
+
+    }
+
+    private void UpdateAnimations()
+    {
+        if (moveInput == 0)
+        {
+            anim.SetBool("isRunning", false);
+        }
+        else
+        {
+            anim.SetBool("isRunning", true);
+        }
+        if (isGrounded)
+        {
+            anim.SetBool("isJumping", false);
+        }
+        else
+        {
+            anim.SetBool("isJumping", true);
+        }
+
     }
 }

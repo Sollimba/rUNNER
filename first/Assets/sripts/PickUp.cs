@@ -6,8 +6,12 @@ using UnityEngine.UI;
 public class PickUp : MonoBehaviour
 {
     private PlayerControler boost;
-    public float BoostSpeed;
+    public static float BoostSpeed;
 
+    private void Start()
+    {
+        BoostSpeed = 10;
+    }
     void Boostmin()
     {
         boost.speed -= BoostSpeed;
