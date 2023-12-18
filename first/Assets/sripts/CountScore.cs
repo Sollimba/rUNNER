@@ -8,14 +8,17 @@ public class CountScore : MonoBehaviour
 
     [SerializeField] Transform point;
     [SerializeField] Text distanceText;
-    [SerializeField] private GameOverScreen gameOverScreen;
 
+    public PlayerControler playerControler;
     public static float distance;
 
-    void LateUpdate()
+    void Update()
     {
         distance = (point.transform.position - transform.position).magnitude;
-        gameOverScreen.score = distance;
+        if (distance != 0)
+        {
+            playerControler.ScorePlayer = distance;
+        }
         distanceText.text = distance.ToString("F1") + "Score";
     }
 

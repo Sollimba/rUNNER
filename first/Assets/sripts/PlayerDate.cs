@@ -7,6 +7,7 @@ using UnityEngine;
 public class PlayerData : ScriptableObject
 {
     [SerializeField] private float score;
+    [SerializeField] private int cred;
 
     public float Score {
         get
@@ -14,6 +15,12 @@ public class PlayerData : ScriptableObject
         set
         { score = value; }
             }
-
+    public int Cred
+    {
+        get
+        { return cred; }
+        set
+        { cred = value; }
+    }
 
 }

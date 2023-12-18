@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerControler : MonoBehaviour
 {
+    public float ScorePlayer { get; set; }
+    public int CreditPlayer { get; set; }
     public float speed;
     public float jumpForce;
     public float moveInput;
@@ -11,9 +13,11 @@ public class PlayerControler : MonoBehaviour
     public float checkRadius;
     public LayerMask whatIsGround;
     public Animator anim;
+    public GameOverScreen gameOverScreen;
+    public ObjectUp objectUp;
 
     private Rigidbody2D rb;
-
+ 
     private bool isGrounded;
     private bool facingRight = true;
     
@@ -28,6 +32,7 @@ public class PlayerControler : MonoBehaviour
         CheckGrounded();
         HandleJump();
         UpdateAnimations();
+        ScorePlayerData();
     }
 
     private void FixedUpdate()
@@ -52,6 +57,12 @@ public class PlayerControler : MonoBehaviour
         }
     }
 
+    private void ScorePlayerData()
+    {
+        gameOverScreen.cred = CreditPlayer;
+        gameOverScreen.score = ScorePlayer;
+    }
+
     void Flip()
     {
         facingRight = !facingRight;
@@ -68,12 +79,6 @@ public class PlayerControler : MonoBehaviour
             transform.eulerAngles = new Vector3(0, 0, 0);
         }
     }
-        private void Move()
-    {
-        float moveInput = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(moveInput * speed, rb.velocity.y);
-    }
-
 
     private void CheckGrounded()
     {

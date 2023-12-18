@@ -6,18 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScreen : MonoBehaviour
 {
-    CountScore countScore;
     [SerializeField] Text HighScoreText;
     [SerializeField] Text ScoreText;
+    [SerializeField] Text CreditText;
     [SerializeField] private  PlayerData playerData;
 
     public float score;
+    public int cred;
 
-    void Awake()
-    {
-        countScore = GameObject.FindGameObjectWithTag("Player").GetComponent<CountScore>();
-        score = 0;
-    }
     public void Setup()
     {
         gameObject.SetActive(true);
@@ -25,8 +21,20 @@ public class GameOverScreen : MonoBehaviour
  
     void Update()
     {
-        float scr = score;
-        ScoreText.text = "SCORE " + scr.ToString();
+        ScoreHighScoreText();
+        CreditScoreText();
+
+    }
+
+    public void CreditScoreText()
+    {
+        playerData.Cred = cred;
+        CreditText.text = "POINT " + playerData.Cred.ToString();
+    }
+
+    public void ScoreHighScoreText()
+    {
+        ScoreText.text = "SCORE " + score.ToString();
         if (playerData.Score <= score)
         {
             playerData.Score = score;
