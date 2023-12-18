@@ -19,7 +19,7 @@ public class CountScore : MonoBehaviour
         {
             playerControler.ScorePlayer = distance;
         }
-        distanceText.text = distance.ToString("F1") + "Score";
+        distanceText.text = ((int)distance).ToString() + " Score";
     }
 
 }

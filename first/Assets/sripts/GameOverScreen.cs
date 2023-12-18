@@ -11,8 +11,14 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] Text CreditText;
     [SerializeField] private  PlayerData playerData;
 
+    public ObjectUp objectUp;
     public float score;
     public int cred;
+
+    public void Start()
+    {
+        CreditScoreText();
+    }
 
     public void Setup()
     {
@@ -22,24 +28,22 @@ public class GameOverScreen : MonoBehaviour
     void Update()
     {
         ScoreHighScoreText();
-        CreditScoreText();
-
     }
 
     public void CreditScoreText()
     {
-        playerData.Cred = cred;
+        playerData.Cred += cred;
         CreditText.text = "POINT " + playerData.Cred.ToString();
     }
 
     public void ScoreHighScoreText()
     {
-        ScoreText.text = "SCORE " + score.ToString();
+        ScoreText.text = "SCORE " + ((int)score).ToString();
         if (playerData.Score <= score)
         {
             playerData.Score = score;
         }
-        HighScoreText.text = "HighScore " + playerData.Score.ToString();
+        HighScoreText.text = "HighScore " + ((int)playerData.Score).ToString();
     }
     public void ResrartButton()
     {

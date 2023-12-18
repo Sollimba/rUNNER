@@ -5,9 +5,8 @@ using UnityEngine.UI;
 
 public class ObjectUp : MonoBehaviour
 {
-    public static int Credit;
+    private int Credit = 0;
     public PlayerControler playerControler;
-
 
     [SerializeField] Text TextCredit;
 
@@ -15,13 +14,19 @@ public class ObjectUp : MonoBehaviour
     {
         if (other.CompareTag("Credit"))
         {
-            Credit ++;
-            playerControler.CreditPlayer = Credit;
+            Credit++;
             UpdateUI();
+            playerControler.CreditPlayer += 1;
             Destroy(other.gameObject);
         }
+
+        if (other.CompareTag("Speeed"))
+        {
+
+        }
     }
-        private void UpdateUI()
+
+    private void UpdateUI()
     {
         TextCredit.text = Credit.ToString();
     }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3050727902707727235}
   m_Layer: 0
   m_Name: speeed_0 1
-  m_TagString: Untagged
+  m_TagString: Speeed
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8484752150677759994}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.2439966, y: -2.1307557, z: 0}
+  m_LocalPosition: {x: 9.489164, y: -3.4649186, z: 0}
   m_LocalScale: {x: 2.2247, y: 2.2247, z: 2.2247}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,4 +162,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2231b6fc86763d4ab67bb0bc97ef648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoostSpeed: 0

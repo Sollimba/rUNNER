@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Credit
+  - PoinTexet
+  - Speeed
   layers:
   - Default
   - TransparentFX
