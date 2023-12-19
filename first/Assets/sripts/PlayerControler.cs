@@ -14,7 +14,6 @@ public class PlayerControler : MonoBehaviour
     public LayerMask whatIsGround;
     public Animator anim;
     public GameOverScreen gameOverScreen;
-    public ObjectUp objectUp;
 
     private Rigidbody2D rb;
  

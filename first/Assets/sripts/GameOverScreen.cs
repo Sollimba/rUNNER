@@ -11,7 +11,6 @@ public class GameOverScreen : MonoBehaviour
     [SerializeField] Text CreditText;
     [SerializeField] private  PlayerData playerData;
 
-    public ObjectUp objectUp;
     public float score;
     public int cred;
 
