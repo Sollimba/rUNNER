@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78c6b98223c69ea48bb360ec832f4a07, type: 3}
   m_Name: ScoreData
   m_EditorClassIdentifier: 
-  score: 32.934723
-  cred: 13
+  score: 297.9197
+  cred: 32

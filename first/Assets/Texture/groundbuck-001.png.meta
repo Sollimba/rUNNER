@@ -140,7 +140,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      groundbuck-001_0: 7356214075347066916
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
