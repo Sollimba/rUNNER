@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PARALAX : MonoBehaviour
+public class Paralax : MonoBehaviour
 {
     private float length, startpos;
     public GameObject cam;
     public float parallaxEffect;
     
-        void Start() {
+        void Start()
+    {
         startpos = transform.position.x;
         length = GetComponent<SpriteRenderer>().bounds.size.x;
     }
